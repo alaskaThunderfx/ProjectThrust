@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    void OnCollisionEnter(Collision other) {
+    void OnCollisionEnter(Collision other)
+    {
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -15,8 +17,14 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("You got some fuel!");
                 break;
             default:
-                Debug.Log("Sorry, you blew up!");
+                ReloadLevel();
                 break;
-        }    
+        }
+    }
+
+    void ReloadLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
