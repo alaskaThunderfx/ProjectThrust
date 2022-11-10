@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     // Preferred variable order:
     // PARAMETERS - for tuning, typically set in the editor
     // CACHE - e.g. references for readability or speed
-    // STATE - private instance (member) variables
+    // STATE - instance (member) variables
 
     [SerializeField]
     float mainThrust = 100f;
@@ -46,20 +46,11 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            if (!asrc.isPlaying)
-            {
-                asrc.PlayOneShot(mainEngine);
-            }
-            if (!mainBoosterParticles.isPlaying)
-            {
-                mainBoosterParticles.Play();
-            }
+            StartThrusting();
         }
         else
         {
-            asrc.Stop();
-            mainBoosterParticles.Stop();
+            StopThrusting();
         }
     }
 
@@ -67,25 +58,59 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationThrust);
-            if (!rightBoosterParticles.isPlaying)
-            {
-                rightBoosterParticles.Play();
-            }
+            RotateLeft();
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotationThrust);
-            if (!leftBoosterParticles.isPlaying)
-            {
-                leftBoosterParticles.Play();
-            }
+            RotateRight();
         }
         else
         {
-            rightBoosterParticles.Stop();
-            leftBoosterParticles.Stop();
+            StopRotating();
         }
+    }
+
+    void StartThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+        if (!asrc.isPlaying)
+        {
+            asrc.PlayOneShot(mainEngine);
+        }
+        if (!mainBoosterParticles.isPlaying)
+        {
+            mainBoosterParticles.Play();
+        }
+    }
+
+    void StopThrusting()
+    {
+        asrc.Stop();
+        mainBoosterParticles.Stop();
+    }
+
+    void RotateLeft()
+    {
+        ApplyRotation(rotationThrust);
+        if (!rightBoosterParticles.isPlaying)
+        {
+            rightBoosterParticles.Play();
+        }
+    }
+
+    void RotateRight()
+    {
+        ApplyRotation(-rotationThrust);
+        if (!leftBoosterParticles.isPlaying)
+        {
+            leftBoosterParticles.Play();
+        }
+    }
+
+    void StopRotating()
+    {
+        rightBoosterParticles.Stop();
+        leftBoosterParticles.Stop();
     }
 
     void ApplyRotation(float rotationThisFrame)
