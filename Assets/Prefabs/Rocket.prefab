@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7517410091021194514}
   - component: {fileID: 7517410091021194515}
   - component: {fileID: 7517410091021194512}
-  - component: {fileID: 7517410091021194516}
   - component: {fileID: 7517410091021194519}
   - component: {fileID: 709443264}
+  - component: {fileID: 7517410091021194516}
+  - component: {fileID: 6511883097422479771}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -100,20 +101,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7517410091021194516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7517410091021194513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80aa8f39ca4ffab4c91bac3bdfba475c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainThrust: 1000
-  rotationThrust: 500
 --- !u!54 &7517410091021194519
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,7 +128,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 746575184c3469142aa302933cc35d14, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -226,6 +213,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7517410091021194516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517410091021194513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80aa8f39ca4ffab4c91bac3bdfba475c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainThrust: 1000
+  rotationThrust: 500
+--- !u!114 &6511883097422479771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517410091021194513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa387e2bb0cd5274395e6e6f69abb0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7517410091484225839
 GameObject:
   m_ObjectHideFlags: 0
