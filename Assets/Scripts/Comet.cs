@@ -5,11 +5,12 @@ using UnityEngine;
 public class Comet : MonoBehaviour
 {
     [SerializeField]
-    float xAxis = 0;
+    Vector3 moveVector = new Vector3(0, 0, 0);
 
     Vector3 startingPosition;
 
-    private void Start() {
+    private void Start()
+    {
         startingPosition = transform.position;
     }
 
@@ -20,7 +21,7 @@ public class Comet : MonoBehaviour
 
     private void Fly()
     {
-        transform.position += new Vector3(xAxis, 0, 0);
+        transform.position += moveVector;
         if (transform.position.x >= 400)
         {
             transform.position = startingPosition;
